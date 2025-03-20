@@ -1,22 +1,10 @@
 import React from "react";
+import { useUserProfile } from "../context/UserProfileContext";
 import "../styles/Profile.css";
 
-interface Order {
-  item: string;
-  date: string;
-  delivered?: boolean;
-}
+const Profile: React.FC = () => {
+  const { name, phone, email, activeAccount, blockedAccount, orders } = useUserProfile();
 
-interface ProfileProps {
-  name: string;
-  phone: string;
-  email: string;
-  activeAccount: string;
-  blockedAccount: string;
-  orders: Order[];
-}
-
-const Profile: React.FC<ProfileProps> = ({ name, phone, email, activeAccount, blockedAccount, orders }) => {
   return (
     <div className="container">
       <div className="full-card">
